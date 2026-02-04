@@ -1,0 +1,102 @@
+@font-face {
+  font-family: 'Excalifont';
+  src: url('Excalifont-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* * {
+  font-family: 'Excalifont', sans-serif !important;
+} */
+
+body {
+  /* Add !important just to test if something else is overriding it */
+  font-family: 'Excalifont', sans-serif !important;
+  line-height: 1.6;
+  max-width: 1000px;
+  margin: 40px auto; 
+  padding: 0 20px;
+  background-color: #1a1a1a;
+  color: #e0e0e0;     
+}
+
+a {
+  color: #4a9eff;
+}
+
+code { 
+	background: #333; 
+	padding: 2px 4px; 
+	border-radius: 4px; 
+}
+
+/* The container for the code block */
+pre {
+    background-color: #2d2d2d; /* Dark background */
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto; /* Adds scrollbar if code is too long */
+    margin: 20px 0;   /* Space above and below the block */
+    border: 1px solid red; /* TODO: select other color */
+}
+
+/* The actual text inside */
+pre code {
+	line-height: 1;
+    background-color: transparent; /* Remove default inline background */
+    color: #f8f8f2;                /* Light text color */
+    font-family: 'Hack', monospace;
+    padding: 0;
+}
+
+/* Styling the Prism Copy Button */
+div.code-toolbar > .toolbar .toolbar-item > button {
+    background: #333;
+    color: #eee;
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+div.code-toolbar > .toolbar .toolbar-item > button:hover {
+    background: #444;
+    color: #fff;
+}
+
+/* Position the button in the top right */
+div.code-toolbar {
+    position: relative;
+}
+
+div.code-toolbar > .toolbar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0.8;
+}
+/* Force the copy button to be visible without hovering */
+div.code-toolbar > .toolbar {
+    opacity: 1 !important;
+}
+
+/* Optional: Make it slightly faded until hover if you find it distracting */
+div.code-toolbar > .toolbar {
+    opacity: 0.5 !important; /* Semi-transparent */
+}
+div.code-toolbar:hover > .toolbar {
+    opacity: 1 !important; /* Solid on hover */
+}
+
+/* Projects */
+.projects {
+    border-bottom: medium solid blue;
+}
+
+/* Posts */
+.posts {
+    border-bottom: medium solid red;
+}

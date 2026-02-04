@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css"
+        rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+</head>
+
+<body>
+    <h1 class="projects">Projects</h1>
+    <ul>
+        <li><a href="https://inventory.tonytech.xyz">Inventory</a> - Django based web application</li>
+        <li><a href="https://portfolio.tonytech.xyz">Inventory</a> - Flask based web application</li>
+    </ul>
+    <h1 class="posts">Posts</h1>
+    <ul>
+        {% for post in posts %}
+        <li>
+            <a href="/posts/{{ post.slug }}">{{ post.title }}</a> - {{ post.date }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
