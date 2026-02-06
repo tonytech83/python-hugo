@@ -20,7 +20,7 @@
 
 body {
   font-family: var(--font-body);
-  line-height: 1.6;
+  line-height: 1.4;
   max-width: 1000px;
   margin: 40px auto;
   padding: 0 20px;
@@ -36,6 +36,11 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+.back {
+  font-size: large;
+  text-decoration: none; !important
 }
 
 /* Inline code */
