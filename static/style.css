@@ -1,3 +1,15 @@
+:root {
+  --bg-main: #1a1a1a;
+  --bg-code: #2d2d2d;
+  --bg-inline-code: #333;
+  --text-main: #e0e0e0;
+  --text-code: #f8f8f2;
+  --accent: #4a9eff;
+  --border-color: #444;
+  --font-body: 'Excalifont', sans-serif;
+  --font-mono: 'Hack', monospace;
+}
+
 @font-face {
   font-family: 'Excalifont';
   src: url('Excalifont-Regular.woff2') format('woff2');
@@ -6,97 +18,82 @@
   font-display: swap;
 }
 
-/* * {
-  font-family: 'Excalifont', sans-serif !important;
-} */
-
 body {
-  /* Add !important just to test if something else is overriding it */
-  font-family: 'Excalifont', sans-serif !important;
+  font-family: var(--font-body);
   line-height: 1.6;
   max-width: 1000px;
-  margin: 40px auto; 
+  margin: 40px auto;
   padding: 0 20px;
-  background-color: #1a1a1a;
-  color: #e0e0e0;     
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  text-rendering: optimizeLegibility;
 }
 
 a {
-  color: #4a9eff;
+  color: var(--accent);
+  text-decoration: none;
 }
 
-code { 
-	background: #333; 
-	padding: 2px 4px; 
-	border-radius: 4px; 
+a:hover {
+  text-decoration: underline;
 }
 
-/* The container for the code block */
+/* Inline code */
+code {
+  background: var(--bg-inline-code);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Code blocks */
 pre {
-    background-color: #2d2d2d; /* Dark background */
-    padding: 15px;
-    border-radius: 5px;
-    overflow-x: auto; /* Adds scrollbar if code is too long */
-    margin: 20px 0;   /* Space above and below the block */
-    border: 1px solid red; /* TODO: select other color */
+  background-color: var(--bg-code);
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 20px 0;
+  border: 1px solid var(--border-color);
 }
 
-/* The actual text inside */
 pre code {
-	line-height: 1;
-    background-color: transparent; /* Remove default inline background */
-    color: #f8f8f2;                /* Light text color */
-    font-family: 'Hack', monospace;
-    padding: 0;
+  font-family: var(--font-mono);
+  line-height: 1; /* Slightly more breathable than 1 */
+  background-color: transparent;
+  color: var(--text-code);
+  padding: 0;
 }
 
-/* Styling the Prism Copy Button */
+/* Prism Toolbar Positioning */
+div.code-toolbar {
+  position: relative;
+}
+
+div.code-toolbar > .toolbar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+div.code-toolbar:hover > .toolbar {
+  opacity: 1;
+}
+
+/* Prism Copy Button */
 div.code-toolbar > .toolbar .toolbar-item > button {
-    background: #333;
-    color: #eee;
-    border: 1px solid #555;
-    border-radius: 5px;
-    padding: 4px 8px;
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  background: var(--bg-inline-code);
+  color: #eee;
+  border: 1px solid #555;
+  border-radius: 5px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
 }
 
 div.code-toolbar > .toolbar .toolbar-item > button:hover {
-    background: #444;
-    color: #fff;
-}
-
-/* Position the button in the top right */
-div.code-toolbar {
-    position: relative;
-}
-
-div.code-toolbar > .toolbar {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    opacity: 0.8;
-}
-/* Force the copy button to be visible without hovering */
-div.code-toolbar > .toolbar {
-    opacity: 1 !important;
-}
-
-/* Optional: Make it slightly faded until hover if you find it distracting */
-div.code-toolbar > .toolbar {
-    opacity: 0.5 !important; /* Semi-transparent */
-}
-div.code-toolbar:hover > .toolbar {
-    opacity: 1 !important; /* Solid on hover */
-}
-
-/* Projects */
-.projects {
-    border-bottom: medium solid blue;
-}
-
-/* Posts */
-.posts {
-    border-bottom: medium solid red;
+  background: #444;
+  color: #fff;
 }

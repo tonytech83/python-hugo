@@ -17,19 +17,29 @@
 </head>
 
 <body>
-    <h1 class="projects">Projects</h1>
+    <h1>tonytech</h1>
     <ul>
-        <li><a href="https://inventory.tonytech.xyz">Inventory</a> - Django based web application</li>
-        <li><a href="https://portfolio.tonytech.xyz">Inventory</a> - Flask based web application</li>
-    </ul>
-    <h1 class="posts">Posts</h1>
-    <ul>
-        {% for post in posts %}
         <li>
-            <a href="/posts/{{ post.slug }}">{{ post.title }}</a> - {{ post.date }}
+            <h2 class="posts">Posts</h2>
+            <ul>
+                {% for post in posts %}
+                <li>
+                    {{ post.date }} [ <a href="/posts/{{ post.slug }}">{{ post.title }}</a> ]
+                </li>
+                {% endfor %}
+            </ul>
         </li>
-        {% endfor %}
+        <li>
+            <h2 class="projects">Projects</h2>
+            <ul>
+                <li>[ <a href="https://inventory.tonytech.xyz">inventory</a> ] Django based web application</li>
+                <li>[ <a href="https://portfolio.tonytech.xyz">portfolio</a> ] Flask based web application</li>
+            </ul>
+        </li>
+
     </ul>
+
+
 </body>
 
 </html>
