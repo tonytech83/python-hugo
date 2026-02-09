@@ -6,21 +6,23 @@
   --text-code: #f8f8f2;
   --accent: #4a9eff;
   --border-color: #444;
-  --font-body: 'Excalifont', sans-serif;
+  /* --font-body: 'Excalifont', sans-serif; */
+  --font-body: monospace;
   --font-mono: 'Hack', monospace;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Excalifont';
   src: url('Excalifont-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 body {
   font-family: var(--font-body);
-  line-height: 1.4;
+  font-size: 1rem;
+  line-height: 1.6;
   max-width: 1000px;
   margin: 40px auto;
   padding: 0 20px;
@@ -53,8 +55,8 @@ code {
 
 /* Code blocks */
 pre {
-  background-color: var(--bg-code);
-  padding: 15px;
+  background-color: red;
+  padding: 10px;
   border-radius: 5px;
   overflow-x: auto;
   margin: 20px 0;
