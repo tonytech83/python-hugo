@@ -31,8 +31,12 @@ def index():
 
 @app.route('/posts/<name>')
 def show_post(name):
-    # Use join for better path handling
-    path = os.path.join(BASE_DIR, "content", "posts", name, "index.md")
+    posts_root = os.path.realpath(os.path.join(BASE_DIR, "content", "posts"))
+    path = os.path.realpath(os.path.join(posts_root, name, "index.md"))
+
+    # Prevent path traversal: resolved path must stay within posts_root
+    if os.path.commonpath([posts_root, path]) != posts_root:
+        abort(404)
 
     if not os.path.exists(path):
         return f"File not found at: {path}", 404 # Helpful for debugging!
