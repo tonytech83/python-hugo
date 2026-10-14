@@ -39,7 +39,7 @@ def show_post(name):
         abort(404)
 
     if not os.path.exists(path):
-        return f"File not found at: {path}", 404 # Helpful for debugging!
+        abort(404)
 
 	# 1. Load the file using frontmatter
     post = frontmatter.load(path)
