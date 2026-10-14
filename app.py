@@ -35,7 +35,7 @@ def show_post(name):
     path = os.path.join(BASE_DIR, "content", "posts", name, "index.md")
 
     if not os.path.exists(path):
-        return f"File not found at: {path}", 404 # Helpful for debugging!
+        abort(404)
 
 	# 1. Load the file using frontmatter
     post = frontmatter.load(path)
