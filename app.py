@@ -52,4 +52,5 @@ def show_post(name):
     return render_template('post.html', date=post_date, title=post_title, content=content_html)
 
 if __name__ == "__main__":
-    app.run(debug=True) # Turn on debug mode to see errors in the browser!
+    debug_mode = os.getenv("FLASK_DEBUG", "false").strip().lower() in ("1", "true", "yes", "on")
+    app.run(debug=debug_mode)
